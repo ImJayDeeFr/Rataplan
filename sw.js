@@ -1,5 +1,5 @@
-// Rataplan : fonctionnement hors ligne. Version 202610281516
-const CACHE = "rataplan-202610281516";
+// Rataplan : fonctionnement hors ligne. Version 202611032106
+const CACHE = "rataplan-202611032106";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "data/ingredients.json", "data/recettes.json"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
